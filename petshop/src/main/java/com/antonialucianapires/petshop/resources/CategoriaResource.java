@@ -1,7 +1,10 @@
 package com.antonialucianapires.petshop.resources;
 
 import com.antonialucianapires.petshop.domain.Categoria;
+import com.antonialucianapires.petshop.services.CategoriaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,19 +15,12 @@ import java.util.List;
 @RequestMapping("/categorias")
 public class CategoriaResource {
 
-    @GetMapping
-    public List<Categoria> recuperarCategorias() {
+    @Autowired
+    private CategoriaService categoriaService;
 
-        Categoria categoria1 = new Categoria(1, "Alimento");
-        Categoria categoria2 = new Categoria(1, "Cosmético");
-        Categoria categoria3 = new Categoria(1, "Remédio");
-
-        List<Categoria> categorias = new ArrayList<>();
-        categorias.add(categoria1);
-        categorias.add(categoria2);
-        categorias.add(categoria3);
-
-        return categorias;
+    @GetMapping("/{id}")
+    public Categoria recuperarCategoriaPorId(@PathVariable int id) {
+        return categoriaService.recuperarCategoriaPorId(id);
     }
 
 }
