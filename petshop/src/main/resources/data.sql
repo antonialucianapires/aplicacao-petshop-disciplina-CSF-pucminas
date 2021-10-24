@@ -29,3 +29,25 @@ INSERT INTO estado (id, nome) VALUES (2, 'São Paulo');
 INSERT INTO cidade (id, nome, id_estado) VALUES (1, 'Belo Horizonte', 1);
 INSERT INTO cidade (id, nome, id_estado) VALUES (2, 'Capelinha', 1);
 INSERT INTO cidade (id, nome, id_estado) VALUES (3, 'São Paulo', 2);
+
+INSERT INTO pessoa (id, codigo_nacional, email, nome) VALUES (1, '123.456.789-10', 'josepaulo@email.com', 'Jose Paulo');
+INSERT INTO cliente (id, tipo) VALUES (1, 'Física');
+
+INSERT INTO pessoa (id, codigo_nacional, email, nome) VALUES (2, '123.456.789-10', 'paulandrade@email.com', 'Paula Andrade');
+INSERT INTO cliente (id, tipo) VALUES (2, 'Jurídica');
+
+INSERT INTO pessoa (id, codigo_nacional, email, nome) VALUES (3, '123.456.789-10', 'sandro@email.com', 'Sandro Nogueira');
+INSERT INTO funcionario (id, funcao) VALUES (3, 'Gerente');
+
+INSERT INTO pessoa (id, codigo_nacional, email, nome) VALUES (4, '123.456.789-10', 'Andre@email.com', 'Andre Saulo');
+INSERT INTO funcionario (id, funcao) VALUES (4, 'Balconista');
+
+INSERT INTO telefones (id_pessoa, telefones) VALUES (1, '96385-8963');
+INSERT INTO telefones (id_pessoa, telefones) VALUES (2, '98547-9657');
+INSERT INTO telefones (id_pessoa, telefones) VALUES (3, '98725-8489');
+INSERT INTO telefones (id_pessoa, telefones) VALUES (4, '98747-5934');
+
+INSERT INTO endereco (id, bairro, cep, complemento, logradouro, numero, id_cidade, id_pessoa) VALUES (1, 'Pindorama', '258963478', 'Apto 1589', 'Rua Tupis', '366', 1, 1);
+INSERT INTO endereco (id, bairro, cep, complemento, logradouro, numero, id_cidade, id_pessoa) VALUES (2, 'Moca', '258963478', 'Apto 963', 'Rua Moca', '789', 3, 2);
+INSERT INTO endereco (id, bairro, cep, complemento, logradouro, numero, id_cidade, id_pessoa) VALUES (3, 'Jardins', '258963478', 'Apto 987', 'Rua Jardins', '369', 3, 3);
+INSERT INTO endereco (id, bairro, cep, complemento, logradouro, numero, id_cidade, id_pessoa) VALUES (4, 'Olaria', '897456358', 'Apto 1001', 'Rua Olaria', '500', 3, 4);
