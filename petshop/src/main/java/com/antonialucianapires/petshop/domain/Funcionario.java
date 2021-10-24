@@ -1,12 +1,16 @@
 package com.antonialucianapires.petshop.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 public class Funcionario extends Pessoa {
     private static final long serialVersionUID = -5113291554649495949L;
     private String funcao;
+    @OneToMany(mappedBy = "funcionario")
+    private List<Servico> servicos;
 
     public Funcionario() {
     }
@@ -22,6 +26,14 @@ public class Funcionario extends Pessoa {
 
     public void setFuncao(String funcao) {
         this.funcao = funcao;
+    }
+
+    public List<Servico> getServicos() {
+        return servicos;
+    }
+
+    public void setServicos(List<Servico> servicos) {
+        this.servicos = servicos;
     }
 
     @Override

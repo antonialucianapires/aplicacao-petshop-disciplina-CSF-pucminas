@@ -1,6 +1,8 @@
 package com.antonialucianapires.petshop.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -8,6 +10,9 @@ public class Cliente extends Pessoa {
 
     private static final long serialVersionUID = 3734383798286329349L;
     private String tipo;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Servico> servicos;
 
     public Cliente() {
     }
@@ -23,6 +28,14 @@ public class Cliente extends Pessoa {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public List<Servico> getServicos() {
+        return servicos;
+    }
+
+    public void setServicos(List<Servico> servicos) {
+        this.servicos = servicos;
     }
 
     @Override
