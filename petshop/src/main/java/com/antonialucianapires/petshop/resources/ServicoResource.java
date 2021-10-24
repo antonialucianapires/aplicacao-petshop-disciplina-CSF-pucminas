@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/servicos")
 public class ServicoResource {
@@ -16,6 +18,11 @@ public class ServicoResource {
     @GetMapping("/{id}")
     public Servico recuperarServicoPorId(@PathVariable int id) {
         return servicoService.recuperarServicoPorId(id);
+    }
+
+    @GetMapping
+    public List<Servico> recuperarTodosOsServicos() {
+        return servicoService.recuperarTodasOsServicos();
     }
 
     @PostMapping

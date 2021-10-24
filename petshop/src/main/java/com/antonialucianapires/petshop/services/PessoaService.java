@@ -7,11 +7,17 @@ import com.antonialucianapires.petshop.repositories.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PessoaService {
 
     @Autowired
     private PessoaRepository pessoaRepository;
+
+    public List<Pessoa> recuperarTodasAsPessoas() {
+        return pessoaRepository.findAll();
+    }
 
     public Pessoa recuperarPessoaPorId(int id) {
         return pessoaRepository.findById(id)

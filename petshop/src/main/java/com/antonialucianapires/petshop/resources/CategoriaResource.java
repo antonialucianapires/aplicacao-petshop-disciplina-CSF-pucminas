@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/categorias")
 public class CategoriaResource {
@@ -16,6 +18,11 @@ public class CategoriaResource {
     @GetMapping("/{id}")
     public Categoria recuperarCategoriaPorId(@PathVariable int id) {
         return categoriaService.recuperarCategoriaPorId(id);
+    }
+
+    @GetMapping
+    public List<Categoria> recuperarTodasAsCategorias() {
+        return categoriaService.recuperarTodasAsCategorias();
     }
 
     @PostMapping
