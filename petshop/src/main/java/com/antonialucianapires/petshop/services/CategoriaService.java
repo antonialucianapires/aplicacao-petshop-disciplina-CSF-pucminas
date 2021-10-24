@@ -17,4 +17,18 @@ public class CategoriaService {
                 .orElseThrow(() -> new ObjetoNaoEncontradoException("Categoria não encontrada."));
     }
 
+    public Categoria cadastrarCategoria(Categoria categoria) {
+        return categoriaRepository.save(categoria);
+    }
+
+    public void atualizarCategoria(Categoria categoria) {
+        recuperarCategoriaPorId(categoria.getId());
+        categoriaRepository.save(categoria);
+    }
+
+    public void deletarCategoria(int id) {
+        recuperarCategoriaPorId(id);
+        categoriaRepository.deleteById(id);
+    }
+
 }

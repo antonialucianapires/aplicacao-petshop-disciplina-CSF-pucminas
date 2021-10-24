@@ -3,10 +3,8 @@ package com.antonialucianapires.petshop.resources;
 import com.antonialucianapires.petshop.domain.Categoria;
 import com.antonialucianapires.petshop.services.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/categorias")
@@ -18,6 +16,25 @@ public class CategoriaResource {
     @GetMapping("/{id}")
     public Categoria recuperarCategoriaPorId(@PathVariable int id) {
         return categoriaService.recuperarCategoriaPorId(id);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Categoria cadastrarNovaCategoria(@RequestBody Categoria categoria) {
+        return categoriaService.cadastrarCategoria(categoria);
+    }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void atualizarCategoria(@RequestBody Categoria categoria, @PathVariable int id) {
+        categoria.setId(id);
+        categoriaService.atualizarCategoria(categoria);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletarCategoria(@PathVariable int id) {
+        categoriaService.deletarCategoria(id);
     }
 
 }
