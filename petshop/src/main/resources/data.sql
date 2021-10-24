@@ -52,11 +52,19 @@ INSERT INTO endereco (id, bairro, cep, complemento, logradouro, numero, id_cidad
 INSERT INTO endereco (id, bairro, cep, complemento, logradouro, numero, id_cidade, id_pessoa) VALUES (3, 'Jardins', '258963478', 'Apto 987', 'Rua Jardins', '369', 3, 3);
 INSERT INTO endereco (id, bairro, cep, complemento, logradouro, numero, id_cidade, id_pessoa) VALUES (4, 'Olaria', '897456358', 'Apto 1001', 'Rua Olaria', '500', 3, 4);
 
-INSERT INTO servico (id, data_entrada, data_saida, descricao, id_cliente, id_funcionario) VALUES (1, '2021-08-10', '2021-08-10', 'Tosa', 1,4);
-INSERT INTO servico (id, data_entrada, data_saida, descricao, id_cliente, id_funcionario) VALUES (2, '2021-08-10', '2021-08-12', 'Hotel', 2,4);
+INSERT INTO servico (id, data_entrada, data_saida, descricao, id_cliente, id_funcionario, id_pet) VALUES (1, '2021-08-10', '2021-08-10', 'Tosa', 1,4,1);
+INSERT INTO servico (id, data_entrada, data_saida, descricao, id_cliente, id_funcionario, id_pet) VALUES (2, '2021-08-10', '2021-08-12', 'Hotel', 2,4,2);
+INSERT INTO servico (id, data_entrada, data_saida, descricao, id_cliente, id_funcionario, id_pet) VALUES (3, '2021-08-10', '2021-08-10', 'Vermifugação', 2,4,3);
 
 INSERT INTO pagamento (situacao, valor, id_servico) VALUES (1, 60.0,1);
 INSERT INTO pagamento (situacao, valor, id_servico) VALUES (3, 120.0,2);
+INSERT INTO pagamento (situacao, valor, id_servico) VALUES (3, 70.0,3);
 
 INSERT INTO pagamento_cartao (parcelas, id_servico) VALUES (2,2);
 INSERT INTO pagamento_dinheiro (data_pagamento, desconto, id_servico) VALUES ('2021-08-10', 15.0, 1);
+INSERT INTO pagamento_dinheiro (data_pagamento, desconto, id_servico) VALUES ('2021-08-10', 15.0, 3);
+
+INSERT INTO servico_produto (id_servico, id_produto) VALUES (3,4);
+INSERT INTO servico_produto (id_servico, id_produto) VALUES (2,2);
+INSERT INTO servico_produto (id_servico, id_produto) VALUES (2,3);
+INSERT INTO servico_produto (id_servico, id_produto) VALUES (1,2);
