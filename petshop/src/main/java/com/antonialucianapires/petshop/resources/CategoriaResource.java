@@ -1,12 +1,14 @@
 package com.antonialucianapires.petshop.resources;
 
 import com.antonialucianapires.petshop.domain.Categoria;
+import com.antonialucianapires.petshop.dto.CategoriaDTO;
 import com.antonialucianapires.petshop.services.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/categorias")
@@ -21,8 +23,8 @@ public class CategoriaResource {
     }
 
     @GetMapping
-    public List<Categoria> recuperarTodasAsCategorias() {
-        return categoriaService.recuperarTodasAsCategorias();
+    public List<CategoriaDTO> recuperarTodasAsCategorias() {
+        return categoriaService.recuperarTodasAsCategorias().stream().map(CategoriaDTO::new).collect(Collectors.toList());
     }
 
     @PostMapping
