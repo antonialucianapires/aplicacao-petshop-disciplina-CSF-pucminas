@@ -11,7 +11,8 @@ public class PessoaDTO implements Serializable {
     private String email;
     private String codigoNacional;
 
-    public PessoaDTO() {}
+    public PessoaDTO() {
+    }
 
     public PessoaDTO(Pessoa pessoa) {
         this.nome = pessoa.getNome();
