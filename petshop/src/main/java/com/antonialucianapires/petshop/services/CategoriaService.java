@@ -1,6 +1,7 @@
 package com.antonialucianapires.petshop.services;
 
 import com.antonialucianapires.petshop.domain.Categoria;
+import com.antonialucianapires.petshop.exceptions.DataIntegrityViolationException;
 import com.antonialucianapires.petshop.exceptions.ObjetoNaoEncontradoException;
 import com.antonialucianapires.petshop.repositories.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,14 @@ public class CategoriaService {
 
     public void deletarCategoria(int id) {
         recuperarCategoriaPorId(id);
-        categoriaRepository.deleteById(id);
+
+        try {
+            categoriaRepository.deleteById(id);
+        } catch (org.springframework.dao.DataIntegrityViolationException dataIntegrityViolationException) {
+            throw new DataIntegrityViolationException("Não é possível apagar esta categoria porque ela possui produtos associados.");
+        }
+
+
     }
 
 }

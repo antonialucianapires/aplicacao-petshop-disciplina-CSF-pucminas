@@ -14,4 +14,10 @@ public class ResourceExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(standardError);
     }
 
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<StandardError> handleObjetoNaoEncontradoException(DataIntegrityViolationException dataIntegrityViolationException) {
+        StandardError standardError = new StandardError(HttpStatus.BAD_REQUEST.value(), dataIntegrityViolationException.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(standardError);
+    }
+
 }
