@@ -1,7 +1,5 @@
 package com.antonialucianapires.petshop.exceptions;
 
-import org.springframework.http.HttpStatus;
-
 import java.io.Serializable;
 
 public class StandardError implements Serializable {
