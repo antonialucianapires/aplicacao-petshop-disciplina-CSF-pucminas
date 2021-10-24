@@ -1,6 +1,6 @@
 package com.antonialucianapires.petshop.domain;
 
-import com.antonialucianapires.petshop.enums.SituacaoPagamento;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -15,8 +15,9 @@ public class Pagamento implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private double valor;
-    private SituacaoPagamento situacao;
+    private int situacao;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "id_servico")
     @MapsId
@@ -25,7 +26,7 @@ public class Pagamento implements Serializable {
     public Pagamento() {
     }
 
-    public Pagamento(int id, double valor, SituacaoPagamento situacao, Servico servico) {
+    public Pagamento(int id, double valor, int situacao, Servico servico) {
         this.id = id;
         this.valor = valor;
         this.situacao = situacao;
@@ -56,11 +57,11 @@ public class Pagamento implements Serializable {
         this.valor = valor;
     }
 
-    public SituacaoPagamento getSituacao() {
+    public int getSituacao() {
         return situacao;
     }
 
-    public void setSituacao(SituacaoPagamento situacao) {
+    public void setSituacao(int situacao) {
         this.situacao = situacao;
     }
 

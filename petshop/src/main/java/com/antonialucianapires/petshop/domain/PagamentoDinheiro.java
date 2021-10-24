@@ -1,7 +1,5 @@
 package com.antonialucianapires.petshop.domain;
 
-import com.antonialucianapires.petshop.enums.SituacaoPagamento;
-
 import javax.persistence.Entity;
 import java.util.Date;
 
@@ -16,7 +14,7 @@ public class PagamentoDinheiro extends Pagamento {
     }
 
 
-    public PagamentoDinheiro(int id, double valor, SituacaoPagamento situacao, Servico servico, Date dataPagamento, double desconto) {
+    public PagamentoDinheiro(int id, double valor, int situacao, Servico servico, Date dataPagamento, double desconto) {
         super(id, valor, situacao, servico);
         this.dataPagamento = dataPagamento;
         this.desconto = desconto;

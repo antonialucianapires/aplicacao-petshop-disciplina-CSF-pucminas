@@ -1,5 +1,7 @@
 package com.antonialucianapires.petshop.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.List;
@@ -11,6 +13,7 @@ public class Cliente extends Pessoa {
     private static final long serialVersionUID = 3734383798286329349L;
     private String tipo;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cliente")
     private List<Servico> servicos;
 
