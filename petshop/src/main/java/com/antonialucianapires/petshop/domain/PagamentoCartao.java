@@ -5,7 +5,7 @@ import com.antonialucianapires.petshop.enums.SituacaoPagamento;
 import javax.persistence.Entity;
 
 @Entity
-public class PagamentoCartao extends Pagamento{
+public class PagamentoCartao extends Pagamento {
     private static final long serialVersionUID = -3330619085180066422L;
 
     private int parcelas;

@@ -15,12 +15,12 @@ public enum SituacaoPagamento {
     }
 
     public static SituacaoPagamento toEnum(Integer codigo) {
-        if(codigo == null){
+        if (codigo == null) {
             return null;
         }
 
         for (SituacaoPagamento situacao : SituacaoPagamento.values()) {
-            if(codigo.equals(situacao.codigo)) {
+            if (codigo.equals(situacao.codigo)) {
                 return situacao;
             }
         }

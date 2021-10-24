@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import java.util.Date;
 
 @Entity
-public class PagamentoDinheiro extends Pagamento{
+public class PagamentoDinheiro extends Pagamento {
     private static final long serialVersionUID = -841505989033718966L;
 
     private Date dataPagamento;
