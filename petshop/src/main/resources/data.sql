@@ -22,3 +22,10 @@ INSERT INTO raca (id, descricao) VALUES (3,'Persa');
 INSERT INTO pet (id, nome, idade, id_especie, id_raca) VALUES (1, 'Jhon', 6, 1, 1);
 INSERT INTO pet (id, nome, idade, id_especie, id_raca) VALUES (2, 'Hana', 5, 1, 2);
 INSERT INTO pet (id, nome, idade, id_especie, id_raca) VALUES (3, 'Mel', 8, 2, 3);
+
+INSERT INTO estado (id, nome) VALUES (1, 'Minas Gerais');
+INSERT INTO estado (id, nome) VALUES (2, 'São Paulo');
+
+INSERT INTO cidade (id, nome, id_estado) VALUES (1, 'Belo Horizonte', 1);
+INSERT INTO cidade (id, nome, id_estado) VALUES (2, 'Capelinha', 1);
+INSERT INTO cidade (id, nome, id_estado) VALUES (3, 'São Paulo', 2);
