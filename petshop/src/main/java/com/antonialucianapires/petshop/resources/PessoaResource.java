@@ -3,10 +3,8 @@ package com.antonialucianapires.petshop.resources;
 import com.antonialucianapires.petshop.domain.Pessoa;
 import com.antonialucianapires.petshop.services.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/pessoas")
@@ -18,5 +16,24 @@ public class PessoaResource {
     @GetMapping("/{id}")
     public Pessoa recuperarPessoaPorId(@PathVariable int id) {
         return pessoaService.recuperarPessoaPorId(id);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Pessoa cadastrarNovaPessoa(@RequestBody Pessoa pessoa) {
+        return pessoaService.cadastrarPessoa(pessoa);
+    }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void atualizarPessoa(@RequestBody Pessoa pessoa, @PathVariable int id) {
+        pessoa.setId(id);
+        pessoaService.atualizarPessoa(pessoa);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletarPessoa(@PathVariable int id) {
+        pessoaService.deletarPessoa(id);
     }
 }
