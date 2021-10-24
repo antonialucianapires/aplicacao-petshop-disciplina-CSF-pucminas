@@ -11,3 +11,14 @@ INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (1,1);
 INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (2,1);
 INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (3,2);
 INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (4,3);
+
+INSERT INTO especie (id, descricao) VALUES (1, 'Cachorro');
+INSERT INTO especie (id, descricao) VALUES (2, 'Gato');
+
+INSERT INTO raca (id, descricao) VALUES (1,'Shitzu');
+INSERT INTO raca (id, descricao) VALUES (2,'Akita');
+INSERT INTO raca (id, descricao) VALUES (3,'Persa');
+
+INSERT INTO pet (id, nome, idade, id_especie, id_raca) VALUES (1, 'Jhon', 6, 1, 1);
+INSERT INTO pet (id, nome, idade, id_especie, id_raca) VALUES (2, 'Hana', 5, 1, 2);
+INSERT INTO pet (id, nome, idade, id_especie, id_raca) VALUES (3, 'Mel', 8, 2, 3);
